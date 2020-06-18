@@ -1,24 +1,24 @@
-# ValuationVisualization
+
+
+![Title Image](Plots/Image1.jpg)
 
 ## Background
 
-Analyze how first and second derivatives of key fundamental metrics correlate with stock valuations and do these relationships correlate with stock performance?
+We set out to look at historical financial data through visualizations for the Dow 30 stocks to determine if it was potentially predictive of future stock returns.
 
-Said another way, are current valuations justified with the growth and acceleration?
+To do this we analyzed how first and second derivatives of key fundamental metrics correlate with stock valuations and future stock performance.
 
-### The questions we set out to answer:
-* Does revenue growth (revenue 1st derivative) correlate with the highest stock valuations (P/S multiple)?
+![Title Image](Plots/Image2.jpg)
+![Title Image](Plots/Image3.jpg)
+### The question we set out to answer:
 
-* Taking this a step further, does revenue acceleration (revenue 2nd derivative) correlate with the highest stock valuations (P/S multiple)?
-
-* Is there a relationship between revenue 1st and 2nd derivatives with future stock performance?
+Are high stock valuations justified by revenue growth and acceleration, and does this correlate with stock performance?
 
 The same question applies to earnings/earnings growth, acceleration, and the Price to Earnings (P/E) multiple. Looking at revenue is useful when analyzing companies with negative earnings. Revenue is always positive, whereas earnings are sometimes negative, particularly for younger, high-growth companies.
 
-We set out to look at the previous year’s financial data for each stock and determine if it was predictive of the following year’s stock returns.
-
-e.g. Are MSFT’s FY 2018 revenue growth, revenue acceleration, and P/S multiple predictive for MSFT’s FY 2019 stock performance?
-
+```
+Example: Are MSFT’s FY 2018 revenue growth, revenue acceleration, and P/S multiple predictive for MSFT’s FY 2019 stock performance?
+```
 ---
 
 ## Data engineering
@@ -33,33 +33,37 @@ Next we wrote functions to calculate the first and second derivatives of earning
 
 ## What we found
 
-If we picked the stocks with highest yoy growth and acceleration, how did we do?
+Plotting our DataFrame we were able to visualize EPS, Revenue per Share, and Share Price for the period from 2008 to 2019.  
 
-For 2018, this was Microsoft....
+![EPS RPS Price 2008-2019_zoomed](Plots/EPS_RPS_Price_2008-2019_zoomed.png)
 
+Adding an interactive year slider we were able to adjust our focus to snapshots of each fiscal year. Changing our axes to represent Revenue Growth (Revenue 1st Derivative) and Revenue Acceleration (Revenue 2nd Derivative) and focusing on one year, we chose Microsoft to test our hypothesis. Microsoft is the most north-easterly stock in the upper right quandrant. This combination of relatively high revenue growth and acceleration also coincides with one of the largest price-to-sales multiples (bubble size). Next we wanted to see if this was at all indicative of the stock performance for the following fiscal year.
 
-![Title of Plot](Plots/file_name.png)
+![Rev Growth Rev Accel PS 2018_ zoomed](Plots/Rev_Growth_Rev_Accel_PS_2018_zoomed.png)
 
-![EPS RPS Price 2008-2019_autoscale](Plots/EPS RPS Price 2008-2019_autoscale.png)
+If we picked the stock with highest YoY growth and acceleration (i.e. MSFT), how did we do?
 
-![EPS RPS Price 2008-2019_zoomed](Plots/EPS RPS Price 2008-2019_zoomed.png)
+Since bubble size must represent positive numbers we created a Following Year Stock Return Rank. Changing the bubble size to represent the Following Year Stock Return Rank, we see that MSFT is one of the top performers for the following year. 
 
-![Rev Growth Rev Accel PS 2018_ zoomed](Plots/Rev Growth Rev Accel PS 2018_ zoomed.png)
+![Rev Growth Rev Accel Rank 2018_zoomed](Plots/Rev_Growth_Rev_Accel_Rank_2018_zoomed.png)
 
-![Stock Growth Stock Accel PS 2018_zoomed](Plots/Stock Growth Stock Accel PS 2018_zoomed.png)
+To better visualize this we plotted a bar chart of fiscal year 2019's ranked stock performance. MSFT was among the top 3 performing stocks, validating our hypothesis!
 
-![Rev Growth Rev Accel Rank 2018_autoscale](Plots/Rev Growth Rev Accel Rank 2018_autoscale.png)
-
-![Rev Growth Rev Accel Rank 2018_zoomed](Plots/Rev Growth Rev Accel Rank 2018_zoomed.png)
-
-![Stock Return Rank for 2019](Plots/Stock Return Rank for 2019.png)
+![Stock Return Rank for 2019](Plots/Stock_Return_Rank_for_2019.png)
 
 ### Correlations
 
-image here
+To take a deeper look at Microsoft we calculated a correlation matrix and saw a strong correlation (0.73) between Revenue Per Share and the Following Year Stock Return. 
 
-## Conclusion
+![MSFT_corr_plot](Plots/Corr1.png)
+![MSFT_high_corr_plot](Plots/Corr2.png)
 
-Can this help in predictive modeling?
-Visualizing data for quick analysis vs. tables of data.
-Set up for machine learning applications.
+## Final Thoughts
+
+By visualizing our DataFrame we were able to quickly identify key trends.
+
+Counter-intuitive to the common valuation approach to invest in underpriced stocks (or avoid overpriced stocks) we observed that high valuations performed well in the time period analyzed (2018-2019). This analysis should be expanded upon to include a larger sample of stocks and over a longer timeframe.
+
+We would like to continue testing our hypothesis with the addition of machine learning applications. 
+
+
