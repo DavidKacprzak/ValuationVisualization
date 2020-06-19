@@ -37,6 +37,14 @@ Plotting our DataFrame we were able to visualize EPS, Revenue per Share, and Sha
 
 ![EPS RPS Price 2008-2019_zoomed](Plots/EPS_RPS_Price_2008-2019_zoomed.png)
 
+Changing our axes to represent Revenue Growth (Revenue 1st Derivative) and Revenue Acceleration (Revenue 2nd Derivative) we observed that companies with positive revenue acceleration had positive returns the following year 80% of the time. Adding a threshold greater than 1 for the 2nd derivitive increased probabilities that the folowing year's returns were positive. We believe this is a particularly attractive metric for risk averse investors.
+
+![Rev Acccel Stock Perf 2008-2019 zoomed](Plots/Rev_Acccel_Stock_Perf_2008-2019_zoomed3.png)
+
+This led us to hypothesizing the following relationships. Diving into single year snapshots we found strong confirmation.
+
+![Directional Quadrant Graphic](Plots/Directional_Quadrant_Graphic.png)
+
 Adding an interactive year slider we were able to adjust our focus to snapshots of each fiscal year. Changing our axes to represent Revenue Growth (Revenue 1st Derivative) and Revenue Acceleration (Revenue 2nd Derivative) and focusing on one year, we chose Microsoft to test our hypothesis. Microsoft is the most north-easterly stock in the upper right quandrant. This combination of relatively high revenue growth and acceleration also coincides with one of the largest price-to-sales multiples (bubble size). Next we wanted to see if this was at all indicative of the stock performance for the following fiscal year.
 
 ![Rev Growth Rev Accel PS 2018_ zoomed](Plots/Rev_Growth_Rev_Accel_PS_2018_zoomed.png)
@@ -47,9 +55,10 @@ Since bubble size must represent positive numbers we created a Following Year St
 
 ![Rev Growth Rev Accel Rank 2018_zoomed](Plots/Rev_Growth_Rev_Accel_Rank_2018_zoomed.png)
 
-To better visualize this we plotted a bar chart of fiscal year 2019's ranked stock performance. MSFT was among the top 3 performing stocks, validating our hypothesis!
+To better visualize this we plotted a bar chart of fiscal year 2019's ranked stock performance. MSFT was among the top 3 performing stocks, validating our hypothesis.
 
 ![Stock Return Rank for 2019](Plots/Stock_Return_Rank_for_2019.png)
+
 
 ### Correlations
 
@@ -60,10 +69,12 @@ To take a deeper look at Microsoft we calculated a correlation matrix and saw a 
 
 ## Final Thoughts
 
-By visualizing our DataFrame we were able to quickly identify key trends.
+By visualizing our DataFrame we were able to quickly identify notable trends.
 
-Counter-intuitive to the common valuation approach to invest in underpriced stocks (or avoid overpriced stocks) we observed that high valuations performed well in the time period analyzed (2018-2019). This analysis should be expanded upon to include a larger sample of stocks and over a longer timeframe.
+The first relationship we found was that irrespective of high P/S multiples, we observed that stocks with growing revenue and revenue acceleration had positive future year stock returns with high probability. Counter-intuitive to the common valuation approach to invest in underpriced stocks (or avoid overpriced stocks), when stocks had growing revenue and revenue acceleration this should be viewed as a strong momentum buy.
 
-We would like to continue testing our hypothesis with the addition of machine learning applications. 
+The second compelling relationship we identified was when stocks had both negative revenue growth and negative acceleration of revenue (decelerating decline in revenue) we observed these are potential turn around candidates. Stocks meeting this criteria often showed returns greater that 50% for the following year.
+
+Ideally this analysis can be expanded upon to include a larger sample of stocks and over a longer timeframe. We would like to continue testing our hypotheses with the addition of machine learning applications in the future! 
 
 
